@@ -3,7 +3,7 @@ MAKEFILE_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 include ${MAKEFILE_DIR}.env
 
 PIKE := docker run --rm \
-	-v .:/terraform \
+	-v .:/pike \
 	${IMAGE_NAME}
 
 echo:
@@ -19,4 +19,4 @@ pike_version:
 	${PIKE} --version
 
 pike_sh:
-	docker run --rm -it -v .:/terraform --entrypoint sh ${IMAGE_NAME}
+	docker run --rm -it -v .:/pike --entrypoint sh ${IMAGE_NAME}
